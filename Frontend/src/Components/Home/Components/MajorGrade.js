@@ -56,8 +56,8 @@ class MajorGrade extends Component {
     const target = e.target;
     const value =
       target.value === "normal"
-        ? this.setState({ credit: 9 }) && this.setState({ count: 0 })
-        : this.setState({ credit: 6 }) && this.setState({ count: 0 });
+        ? this.setState({ credit: 9, count: 0 })
+        : this.setState({ credit: 6, count: 0 });
     const name = target.name;
 
     this.setState({ [name]: value });
@@ -65,7 +65,7 @@ class MajorGrade extends Component {
 
   handleChangeCount = (e) => {
     console.log("grade has selected");
-    this.setState({ count: this.state.count + 3 });
+    if (e.target.value) this.setState({ count: this.state.count + 3 });
   };
 
   handleProgress = () => {
@@ -133,6 +133,86 @@ class MajorGrade extends Component {
       } else if (this.state.count > 6) {
         alert("Your's credit is over");
         this.setState({ count: 6 });
+      }
+    }
+  };
+
+  handleGrade = () => {
+    if (this.state.credit === 9) {
+      if (this.state.count >= 9) {
+        return (
+          <select
+            className="form-control select1"
+            style={{ width: "100%" }}
+            name="grade"
+            onChange={this.handleChangeCount}
+          >
+            <option disabled>-----</option>
+            <option disabled>A</option>
+            <option disabled>B+</option>
+            <option disabled>B</option>
+            <option disabled>C+</option>
+            <option disabled>C</option>
+            <option disabled>D+</option>
+            <option disabled>D</option>
+          </select>
+        );
+      } else {
+        return (
+          <select
+            className="form-control select1"
+            style={{ width: "100%" }}
+            name="grade"
+            onChange={this.handleChangeCount}
+          >
+            <option selected="selected">-----</option>
+            <option>A</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>D+</option>
+            <option>D</option>
+          </select>
+        );
+      }
+    } else {
+      if (this.state.count >= 6) {
+        return (
+          <select
+            className="form-control select1"
+            style={{ width: "100%" }}
+            name="grade"
+            onChange={this.handleChangeCount}
+          >
+            <option disabled>-----</option>
+            <option disabled>A</option>
+            <option disabled>B+</option>
+            <option disabled>B</option>
+            <option disabled>C+</option>
+            <option disabled>C</option>
+            <option disabled>D+</option>
+            <option disabled>D</option>
+          </select>
+        );
+      } else {
+        return (
+          <select
+            className="form-control select1"
+            style={{ width: "100%" }}
+            name="grade"
+            onChange={this.handleChangeCount}
+          >
+            <option selected="selected">-----</option>
+            <option>A</option>
+            <option>B+</option>
+            <option>B</option>
+            <option>C+</option>
+            <option>C</option>
+            <option>D+</option>
+            <option>D</option>
+          </select>
+        );
       }
     }
   };
@@ -213,24 +293,7 @@ class MajorGrade extends Component {
                         <div className="col-md-9">
                           <label>{data}</label>
                         </div>
-                        <div className="col-md-3">
-                          <select
-                            className="form-control select1"
-                            style={{ width: "100%" }}
-                            name="grade"
-                            onChange={this.handleChangeCount}
-                          >
-                            <option selected="selected">-----</option>
-                            <option>A</option>
-                            <option>B+</option>
-                            <option>B</option>
-                            <option>C+</option>
-                            <option>C</option>
-                            <option>D+</option>
-                            <option>D</option>
-                            <option>F</option>
-                          </select>
-                        </div>
+                        <div className="col-md-3">{this.handleGrade()}</div>
                       </div>
                     );
                   })}
