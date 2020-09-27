@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { register } from "./../../Actions/register.action"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Register extends Component {
   constructor(props) {
@@ -23,16 +24,22 @@ class Register extends Component {
   
   render() {
     return (
-      <div class="hold-transition register-page">
-          <div className="login-box">
+      <div class="hold-transition register-page content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7">
+              <img src="./pexels-pixabay-373076.png"></img>
+            </div>
+        <div class="col-md-5">
+          <div className="login-box" style={{"position":"relative","left":"120px","top":"185px"}}>
             <div className="login-logo">
               <a href="../../index2.html">
                 <b>CPE </b>Career Simulation
               </a>
             </div>
             {/* /.login-logo */}
-            <div className="card">
-              <div className="card-body login-card-body">
+            <div className="card" style={{"borderRadius":"10px"}}>
+              <div className="card-body login-card-body" style={{"borderRadius":"10px"}}>
                 <p className="login-box-msg">Register to start your session</p>
                 <form action="../../index3.html" method="post">
                   <div className="input-group mb-3">
@@ -76,6 +83,7 @@ class Register extends Component {
                       }
                       }
                     type="submit"
+                    style={{ marginTop: 8 , backgroundColor: "#7C6BA3", borderColor: "#7C6BA3", "borderRadius":"10px"}}
                       className="btn btn-block btn-primary"
                     >
                       Register
@@ -87,10 +95,10 @@ class Register extends Component {
                         this.props.history.goBack()
                       }  
                       }
-                        style={{marginTop: 8}}
+                        style={{marginTop: 8, backgroundColor: "#ED6E85", borderColor: "#ED6E85", "borderRadius":"10px"}}
                       className="btn btn-block btn-danger"
                     >
-                      Cancle
+                      Cancel
                     </button>
                   </div>
                 </form>
@@ -98,6 +106,9 @@ class Register extends Component {
               {/* /.login-card-body */}
             </div>
           </div>
+      </div>
+      </div>
+      </div>
       </div>
     );
   }

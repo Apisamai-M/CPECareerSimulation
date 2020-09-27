@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 class MajorGrade extends Component {
   subject = [
+    "Parallel Processing and Distributed",
+    "Wireless Networks",
     "Broadband Communication Networks",
     "Fundamental of MultiProtocol Label Switch",
     "Advanced Database Systems",
@@ -9,14 +11,61 @@ class MajorGrade extends Component {
     "Digital Image Processing",
     "Introduction to Computational Intelligence for CPE",
     "Visual and Interactive Programming",
+    "Computer Graphics",
+    "System Analysis and Design for Computer Engineering",
+    "Robotics",
+    "Computer-Aided Manufacturing",
+    "Biomedical Instruments",
+    "Data Warehousing and Business Intelligence for ISNE",
+    "Computer Network Traffic Analysis",
+    "Wireless Sensor Network",
+    "Peer-to-peer Systems",
+    "Introduction to Neuro-Fuzzy Systems",
+    "Mobile Application Development",
+    "Personal Software Process Improvement",
+    "Introduction to Human-Computer Interaction",
+    "Advanced Project Management for ISNE",
+    "Risk Management in Software Project",
+    "Seminar",
+    "Selected Topics in ISNE",
+    "Selected Topics in Information Systems 1",
+    "Selected Topics in Information Systems 2",
+    "Selected Topics in Network Engineering 1",
+    "Selected Topics in Network Engineering 2",
+    "Information Systems and Network Engineering Training"
   ];
-
+  
   // Default Refresh
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      plan: "",
+      credit: 9,
+      progress: 0,
+      grade: ""
+    };
+  }
+
+  handleChange = e => {
+    const target = e.target
+    const value = target.value === "normal" ? this.setState({credit: 9}) : this.setState({credit: 6})
+    const name = target.name
+
+    this.setState({[name]: value})
+  };
+
+  // handleChange = e => {
+  //   console.log("grade has selected")
+  //   this.setState({grade: e.target.value})
+  // }
+
   render() {
+    console.log(this.state.plan)
     return (
       <div class="content-wrapper">
         <section class="content-header">
@@ -32,36 +81,40 @@ class MajorGrade extends Component {
         <section className="content">
           <section className="container-fluid">
             {/* SELECT2 EXAMPLE */}
-            <div className="card card-default">
-              <div className="card-header">
-                <h3 className="card-title">
+            <div className="card card-default" style={{borderRadius:"2.25rem"}}>
+              <div className="card-header" style={{backgroundColor:"#3f607b",borderTopLeftRadius:"2.25rem",borderTopRightRadius:"2.25rem"}}>
+                <h3 className="card-title" style={{color: "white"}}>
                   Please input your grade (or expected grade)
                 </h3>
-
+                
                 {/* radio */}
                 <div className="form-group float-right">
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="radio2"
+                    value="normal"
+                    name="plan"
+                    onClick={this.handleChange}
                   />
                   <label
                     className="form-check-label"
-                    style={{ marginRight: 30 }}
+                    style={{ marginRight: 30 ,color: "white"}}
                   >
                     Normal Plan
                   </label>
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="radio2"
+                    value="cooperative"
+                    name="plan"
+                    onClick={this.handleChange}
                   />
-                  <label className="form-check-label">Cooprative Plan</label>
+                  <label className="form-check-label" style={{color: "white"}}>Cooperative Plan</label>
                 </div>
               </div>
 
               {/* /.card-header */}
-              <div className="card-body">
+              <div className="card-body" style={{backgroundColor:"#EFE7F7"}}>   
                 <div className="row">
                   {this.subject.map((data) => {
                     return (
@@ -76,8 +129,12 @@ class MajorGrade extends Component {
                           <select
                             className="form-control select1"
                             style={{ width: "100%" }}
+                            name="grade"
+                            // value={this.state.grade}
+                            // onChange={this.handleChange}
                           >
-                            <option selected="selected">A</option>
+                            <option selected="selected">-----</option>
+                            <option>A</option>
                             <option>B+</option>
                             <option>B</option>
                             <option>C+</option>
@@ -93,15 +150,15 @@ class MajorGrade extends Component {
                 </div>
                 <button
                   onClick={this.continue}
-                  class="btn btn-info float-right"
-                  style={{ marginRight: 9 }}
+                  class="btn btn-info float-right" 
+                  style={{ marginRight: 9,backgroundColor:"#FEF28A",borderColor:"#FEF28A"}}
                 >
-                  Submit
+                  <span style={{color:"#8D8D8C"}}>Submit</span>
                 </button>
                 {/* /.row */}
               </div>
               <center>
-                <span>6 credit Left</span>
+                <span>{this.state.credit} credit Left</span>
                 <div
                   className="progress progress-sm active"
                   style={{ width: "50%", marginBottom: 10 }}
