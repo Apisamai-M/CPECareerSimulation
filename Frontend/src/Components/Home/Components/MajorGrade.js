@@ -32,9 +32,9 @@ class MajorGrade extends Component {
     "Selected Topics in Information Systems 2",
     "Selected Topics in Network Engineering 1",
     "Selected Topics in Network Engineering 2",
-    "Information Systems and Network Engineering Training"
+    "Information Systems and Network Engineering Training",
   ];
-  
+
   // Default Refresh
   continue = (e) => {
     e.preventDefault();
@@ -52,21 +52,93 @@ class MajorGrade extends Component {
     };
   }
 
-  handleChange = e => {
-    const target = e.target
-    const value = target.value === "normal" ? this.setState({credit: 9}) : this.setState({credit: 6})
-    const name = target.name
+  handleChange = (e) => {
+    const target = e.target;
+    const value =
+      target.value === "normal"
+        ? this.setState({ credit: 9 })
+        : this.setState({ credit: 6 });
+    const name = target.name;
 
-    this.setState({[name]: value})
+    this.setState({ [name]: value });
   };
 
-  handleChangeCount = e => {
-    console.log("grade has selected")
-    this.setState({count: this.state.count + 3})
-  }
+  handleChangeCount = (e) => {
+    console.log("grade has selected");
+    this.setState({ count: this.state.count + 3 });
+  };
+
+  handleProgress = () => {
+    if (this.state.credit === 9) {
+      if (this.state.count === 3) {
+        return (
+          <div
+            className="progress-bar bg-warning progress-bar-striped"
+            role="progressbar"
+            aria-valuenow={50}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{ width: "33.33%" }}
+          />
+        );
+      } else if (this.state.count === 6) {
+        return (
+          <div
+            className="progress-bar bg-warning progress-bar-striped"
+            role="progressbar"
+            aria-valuenow={50}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{ width: "66.66%" }}
+          />
+        );
+      } else if (this.state.count === 9) {
+        return (
+          <div
+            className="progress-bar bg-warning progress-bar-striped"
+            role="progressbar"
+            aria-valuenow={50}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{ width: "100%" }}
+          />
+        );
+      } else if (this.state.count > 9) {
+        alert("Your's credit is over");
+        this.setState({ count: 9 });
+      }
+    } else if (this.state.credit === 6) {
+      if (this.state.count === 3) {
+        return (
+          <div
+            className="progress-bar bg-success progress-bar-striped"
+            role="progressbar"
+            aria-valuenow={50}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{ width: "50%" }}
+          />
+        );
+      } else if (this.state.count === 6) {
+        return (
+          <div
+            className="progress-bar bg-success progress-bar-striped"
+            role="progressbar"
+            aria-valuenow={50}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            style={{ width: "100%" }}
+          />
+        );
+      } else if (this.state.count > 6) {
+        alert("Your's credit is over");
+        this.setState({ count: 6 });
+      }
+    }
+  };
 
   render() {
-    console.log("this is grade " + this.state.count)
+    console.log("this is grade " + this.state.count);
     return (
       <div class="content-wrapper">
         <section class="content-header">
@@ -82,12 +154,22 @@ class MajorGrade extends Component {
         <section className="content">
           <section className="container-fluid">
             {/* SELECT2 EXAMPLE */}
-            <div className="card card-default" style={{borderRadius:"2.25rem"}}>
-              <div className="card-header" style={{backgroundColor:"#3f607b",borderTopLeftRadius:"2.25rem",borderTopRightRadius:"2.25rem"}}>
-                <h3 className="card-title" style={{color: "white"}}>
+            <div
+              className="card card-default"
+              style={{ borderRadius: "2.25rem" }}
+            >
+              <div
+                className="card-header"
+                style={{
+                  backgroundColor: "#3f607b",
+                  borderTopLeftRadius: "2.25rem",
+                  borderTopRightRadius: "2.25rem",
+                }}
+              >
+                <h3 className="card-title" style={{ color: "white" }}>
                   Please input your grade (or expected grade)
                 </h3>
-                
+
                 {/* radio */}
                 <div className="form-group float-right">
                   <input
@@ -99,7 +181,7 @@ class MajorGrade extends Component {
                   />
                   <label
                     className="form-check-label"
-                    style={{ marginRight: 30 ,color: "white"}}
+                    style={{ marginRight: 30, color: "white" }}
                   >
                     Normal Plan
                   </label>
@@ -110,12 +192,17 @@ class MajorGrade extends Component {
                     name="plan"
                     onClick={this.handleChange}
                   />
-                  <label className="form-check-label" style={{color: "white"}}>Cooperative Plan</label>
+                  <label
+                    className="form-check-label"
+                    style={{ color: "white" }}
+                  >
+                    Cooperative Plan
+                  </label>
                 </div>
               </div>
 
               {/* /.card-header */}
-              <div className="card-body" style={{backgroundColor:"#EFE7F7"}}>   
+              <div className="card-body" style={{ backgroundColor: "#EFE7F7" }}>
                 <div className="row">
                   {this.subject.map((data) => {
                     return (
@@ -134,14 +221,14 @@ class MajorGrade extends Component {
                             onChange={this.handleChangeCount}
                           >
                             <option selected="selected">-----</option>
-                            <option value={3}>A</option>
-                            <option value={3}>B+</option>
-                            <option value={3}>B</option>
-                            <option value={3}>C+</option>
-                            <option value={3}>C</option>
-                            <option value={3}>D+</option>
-                            <option value={3}>D</option>
-                            <option value={3}>F</option>
+                            <option>A</option>
+                            <option>B+</option>
+                            <option>B</option>
+                            <option>C+</option>
+                            <option>C</option>
+                            <option>D+</option>
+                            <option>D</option>
+                            <option>F</option>
                           </select>
                         </div>
                       </div>
@@ -150,10 +237,14 @@ class MajorGrade extends Component {
                 </div>
                 <button
                   onClick={this.continue}
-                  class="btn btn-info float-right" 
-                  style={{ marginRight: 9,backgroundColor:"#FEF28A",borderColor:"#FEF28A"}}
+                  class="btn btn-info float-right"
+                  style={{
+                    marginRight: 9,
+                    backgroundColor: "#FEF28A",
+                    borderColor: "#FEF28A",
+                  }}
                 >
-                  <span style={{color:"#8D8D8C"}}>Submit</span>
+                  <span style={{ color: "#8D8D8C" }}>Submit</span>
                 </button>
                 {/* /.row */}
               </div>
@@ -163,19 +254,9 @@ class MajorGrade extends Component {
                   className="progress progress-sm active"
                   style={{ width: "50%", marginBottom: 10 }}
                 >
-                  <div
-                    className="progress-bar bg-warning progress-bar-striped"
-                    role="progressbar"
-                    aria-valuenow={20}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                    style={{ width: "20%" }}
-                  >
-                    <span className="sr-only">20% Complete</span>
-                  </div>
+                  {this.handleProgress()}
                 </div>
               </center>
-
               {/* /.card-body */}
             </div>
           </section>
