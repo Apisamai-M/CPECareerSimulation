@@ -56,8 +56,8 @@ class MajorGrade extends Component {
     const target = e.target;
     const value =
       target.value === "normal"
-        ? this.setState({ credit: 9 })
-        : this.setState({ credit: 6 });
+        ? this.setState({ credit: 9 }) && this.setState({ count: 0 })
+        : this.setState({ credit: 6 }) && this.setState({ count: 0 });
     const name = target.name;
 
     this.setState({ [name]: value });
@@ -249,7 +249,7 @@ class MajorGrade extends Component {
                 {/* /.row */}
               </div>
               <center>
-                <span>{this.state.credit} credit Left</span>
+                <span>{this.state.credit} credit</span>
                 <div
                   className="progress progress-sm active"
                   style={{ width: "50%", marginBottom: 10 }}
