@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { login, autoLogin } from "./../../Actions/login.action";
 import { connect } from "react-redux";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Container } from 'react-bootstrap';
 
 class Login extends Component {
   constructor(props) {
@@ -37,16 +39,22 @@ class Login extends Component {
 
   render() {
     return (
-      <div class="hold-transition login-page" >
-          <div className="login-box">
+      <div class="hold-transition login-page content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7">
+              <img style={{float: "left", objectFit:"cover"}} src="./pexels-pixabay-373076.png"></img>
+            </div>
+            <div class="col-md-5">
+          <div className="login-box" style={{"position":"relative","left":"120px","top":"185px"}}>
             <div className="login-logo">
               <a href="../../index2.html">
                 <b >CPE </b>Career Simulation
               </a>
             </div>
             {/* /.login-logo */}
-            <div className="card">
-              <div className="card-body login-card-body">
+            <div className="card" style={{"borderRadius":"10px"}}>
+              <div className="card-body login-card-body" style={{"borderRadius":"10px"}}>
                 <p className="login-box-msg">Sign in to start your session</p>
                 <form action="../../index3.html" method="post">
                   <div className="input-group mb-3">
@@ -75,7 +83,7 @@ class Login extends Component {
                     />
                     <div className="input-group-append">
                       <div className="input-group-text">
-                        <span className="fas fa-lock" />
+                        <span className="fas fa-lock"/>
                       </div>
                     </div>
                   </div>
@@ -88,6 +96,7 @@ class Login extends Component {
                         this.props.login(this.props.history, this.state);
                       }}
                       type="submit"
+                      style={{ marginTop: 8 , backgroundColor: "#00305A", borderColor: "#00305A", "borderRadius":"10px"}}
                       className="btn btn-block btn-primary"
                     >
                       Sign In
@@ -95,7 +104,7 @@ class Login extends Component {
                     <button
                       onClick={() => this.props.history.push("/register")}
                       type="submit"
-                      style={{ marginTop: 8 }}
+                      style={{ marginTop: 8 , backgroundColor: "#7C6BA3", borderColor: "#7C6BA3", "borderRadius":"10px"}}
                       className="btn btn-block btn-danger"
                     >
                       Register
@@ -104,8 +113,11 @@ class Login extends Component {
                 </form>
               </div>
               {/* /.login-card-body */}
+              </div>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     );
   }

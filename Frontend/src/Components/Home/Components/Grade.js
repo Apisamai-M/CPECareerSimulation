@@ -7,7 +7,6 @@ class Grade extends Component {
     "Computer Networks",
     "Algorithms for ISNE",
     "Web Programming Language",
-    "Database System",
     "Network Programming",
     "Database System",
     "Database System Lab",
@@ -20,7 +19,8 @@ class Grade extends Component {
     "Data Centric",
     "Project Management for ISNE",
     "Wireless and Broadband",
-    "Information System",
+    "Adv. IS and Network Technology",
+    "Information Systems",
     "Information Technology Service",
   ];
 
@@ -46,14 +46,14 @@ class Grade extends Component {
         <section className="content">
           <section className="container-fluid">
             {/* SELECT2 EXAMPLE */}
-            <div className="card card-default">
-              <div className="card-header">
-                <h3 className="card-title">
+            <div className="card card-default" style={{borderRadius:"2.25rem"}}>
+              <div className="card-header" style={{backgroundColor:"#3f607b",borderTopLeftRadius:"2.25rem",borderTopRightRadius:"2.25rem"}}>
+                <h3 className="card-title" style={{color: "white"}}>
                   Please input your grade (or expected grade)
                 </h3>
               </div>
               {/* /.card-header */}
-              <div className="card-body">
+              <div className="card-body" style={{backgroundColor:"#EFE7F7", borderBottomLeftRadius:"2.25rem",borderBottomRightRadius:"2.25rem"}}>
                 <div className="row">
                   {this.subject.map((data) => {
                     return (
@@ -64,14 +64,15 @@ class Grade extends Component {
                             className="form-control select1"
                             style={{ width: "100%" }}
                           >
-                            <option selected="selected">A</option>
-                            <option>B+</option>
-                            <option>B</option>
-                            <option>C+</option>
-                            <option>C</option>
-                            <option>D+</option>
-                            <option>D</option>
-                            <option>F</option>
+                            <option value="none" selected="selected">-----</option>
+                            <option value="1">A</option>
+                            <option value="2">B+</option>
+                            <option value="3">B</option>
+                            <option value="4">C+</option>
+                            <option value="5">C</option>
+                            <option value="6">D+</option>
+                            <option value="7">D</option>
+                            <option value="8">F</option>
                           </select>
                         </div>
                       </div>
@@ -81,6 +82,7 @@ class Grade extends Component {
                 <button
                   onClick={this.continue}
                   class="btn btn-info float-right"
+                  style={{ marginRight: 9,backgroundColor:"#00305A",borderColor:"#00305A", borderRadius:"10px"}}
                 >
                   Next
                 </button>

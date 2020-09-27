@@ -31,21 +31,21 @@ class StatusProfile extends Component {
                     <div className="text-center">
                       <img
                         className="profile-user-img img-fluid img-circle"
-                        src="../../dist/img/user4-128x128.jpg"
+                        src="../../dist/img/avatar2.png"
                         alt="User profile picture"
                       />
                     </div>
                     <h3 className="profile-username text-center">
-                      Nina Mcintire
+                      Apisamai Maisrithong
                     </h3>
-                    <p className="text-muted text-center">Software Engineer</p>
+                    {/* <p className="text-muted text-center">Software Engineer</p> */}
                   </div>
                   {/* /.card-body */}
                 </div>
                 {/* /.card */}
                 {/* About Me Box */}
                 <div className="card card-primary">
-                  <div className="card-header">
+                  <div className="card-header"style={{backgroundColor:"#7C6BA3"}}>
                     <h3 className="card-title">About Me</h3>
                   </div>
                   {/* /.card-header */}
@@ -54,16 +54,15 @@ class StatusProfile extends Component {
                       <i className="fas fa-book mr-1" /> Education
                     </strong>
                     <p className="text-muted">
-                      B.S. in Computer Science from the University of Tennessee
-                      at Knoxville
+                      Information System and Network Engineering
                     </p>
                     <hr />
                     <strong>
                       <i className="fas fa-map-marker-alt mr-1" /> Location
                     </strong>
-                    <p className="text-muted">Malibu, California</p>
+                    <p className="text-muted">Chiang Mai University</p>
                     <hr />
-                    <strong>
+                    {/* <strong>
                       <i className="fas fa-pencil-alt mr-1" /> Skills
                     </strong>
                     <p className="text-muted">
@@ -80,7 +79,7 @@ class StatusProfile extends Component {
                     <p className="text-muted">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Etiam fermentum enim neque.
-                    </p>
+                    </p> */}
                   </div>
                   {/* /.card-body */}
                 </div>
@@ -150,8 +149,8 @@ class StatusProfile extends Component {
                 </div>
 
                 <div className="card card-danger">
-                  <div className="card-header">
-                    <h3 className="card-title">Donut Chart</h3>
+                  <div className="card-header"style={{backgroundColor:"#00305A"}}>
+                    <h3 className="card-title">Skills Chart</h3>
                     <div className="card-tools">
                       <button
                         type="button"
