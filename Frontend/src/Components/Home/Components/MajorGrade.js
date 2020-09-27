@@ -47,7 +47,8 @@ class MajorGrade extends Component {
       plan: "",
       credit: 9,
       progress: 0,
-      grade: ""
+      grade: "",
+      count: 0,
     };
   }
 
@@ -59,13 +60,13 @@ class MajorGrade extends Component {
     this.setState({[name]: value})
   };
 
-  // handleChange = e => {
-  //   console.log("grade has selected")
-  //   this.setState({grade: e.target.value})
-  // }
+  handleChangeCount = e => {
+    console.log("grade has selected")
+    this.setState({count: this.state.count + 3})
+  }
 
   render() {
-    console.log(this.state.plan)
+    console.log("this is grade " + this.state.count)
     return (
       <div class="content-wrapper">
         <section class="content-header">
@@ -130,18 +131,17 @@ class MajorGrade extends Component {
                             className="form-control select1"
                             style={{ width: "100%" }}
                             name="grade"
-                            // value={this.state.grade}
-                            // onChange={this.handleChange}
+                            onChange={this.handleChangeCount}
                           >
                             <option selected="selected">-----</option>
-                            <option>A</option>
-                            <option>B+</option>
-                            <option>B</option>
-                            <option>C+</option>
-                            <option>C</option>
-                            <option>D+</option>
-                            <option>D</option>
-                            <option>F</option>
+                            <option value={3}>A</option>
+                            <option value={3}>B+</option>
+                            <option value={3}>B</option>
+                            <option value={3}>C+</option>
+                            <option value={3}>C</option>
+                            <option value={3}>D+</option>
+                            <option value={3}>D</option>
+                            <option value={3}>F</option>
                           </select>
                         </div>
                       </div>
