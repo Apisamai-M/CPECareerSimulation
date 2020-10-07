@@ -104,7 +104,7 @@ class MajorGrade extends Component {
           />
         );
       } else if (this.state.count > 9) {
-        alert("Your's credit is over");
+        alert("Your credit is full!");
         this.setState({ count: 9 });
       }
     } else if (this.state.credit === 6) {
@@ -131,7 +131,7 @@ class MajorGrade extends Component {
           />
         );
       } else if (this.state.count > 6) {
-        alert("Your's credit is over");
+        alert("Your credit is full!");
         this.setState({ count: 6 });
       }
     }

@@ -145,6 +145,12 @@ class StatusProfile extends Component {
                         <span className="sr-only">80% Complete</span>
                       </div>
                     </div>
+                    <button 
+                        className="btn btn-block btn-primary"
+                      >
+                        <a href="../../quiz.js" />
+                        Start Quiz
+                      </button>
                   </div>
                 </div>
 
