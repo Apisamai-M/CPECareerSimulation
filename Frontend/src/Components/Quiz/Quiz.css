@@ -1,0 +1,5 @@
+.quiz input[type=radio]{
+    position: relative;
+    top: 90px;
+    left: 90px;
+}

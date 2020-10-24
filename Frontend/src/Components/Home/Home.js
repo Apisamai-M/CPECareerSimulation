@@ -30,7 +30,7 @@ class Home extends Component {
     });
   };
 
-  handleValidation(){
+  handleValidation = () =>{
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
@@ -51,7 +51,6 @@ class Home extends Component {
       errors["student_id"] = "Cannot be empty";
     }
     
-    
     if(typeof fields["fname"] !== "undefined"){
       if(!fields["fname"].match(/^[a-zA-Z]+$/)){
         formIsValid = false;
@@ -65,12 +64,17 @@ class Home extends Component {
       }        
     }
     if(typeof fields["student_id"] !== "undefined"){
-      if(!fields["student_id"].match(/^[0-9]*$/)){
+      if(!fields["student_id"].match(/^[0-9]+$/)){
         formIsValid = false;
-        errors["student_id"] = "Only numbers";
+        errors["student_id"] = "Only number";
+        if(fields["student_id"].length !== 9)
+        {
+          formIsValid = false;
+          errors["student_id"] = "Should be 9 digits";
+        }
       }        
     }
-
+    
     this.setState({errors: errors});
     return formIsValid;
 }
@@ -78,7 +82,7 @@ class Home extends Component {
 contactSubmit(e){
   e.preventDefault();
   if(this.handleValidation()){
-    alert("Form submitted");
+    // alert("Form submitted");
     e.preventDefault();
     this.nextStep();
   }else{
@@ -86,17 +90,11 @@ contactSubmit(e){
   }
 }
   // Handle fields change
-  handleChange(field, e){         
-    let fields = this.state.fields;
-    fields[field] = e.target.value;        
-    this.setState({fields});
+handleChange(field, e){         
+  let fields = this.state.fields;
+  fields[field] = e.target.value;        
+  this.setState({fields});
 }
-
-  // Default Refresh
-  // continue = (e) => {
-  //   e.preventDefault();
-  //   this.nextStep();
-  // };
 
   render() {
     switch (this.state.step) {
@@ -156,7 +154,7 @@ contactSubmit(e){
                           <label>Student Id</label>
                           <input
                             ref="student_id"
-                            type="studentId"
+                            type="id"
                             class="form-control"
                             id="studentId"
                             maxLength="9"

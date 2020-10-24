@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 
 class StatusProfile extends Component {
   componentDidMount() {
@@ -6,6 +7,7 @@ class StatusProfile extends Component {
     scripts.src = "./js/chart.js";
     document.body.appendChild(scripts);
   }
+  
   render() {
     return (
       <div className="content-wrapper">
@@ -145,12 +147,13 @@ class StatusProfile extends Component {
                         <span className="sr-only">80% Complete</span>
                       </div>
                     </div>
-                    <button 
+                    <Link 
+                    to="/Quiz"
                         className="btn btn-block btn-primary"
+                        style={{ marginTop: 8 , backgroundColor: "#00305A", borderColor: "#00305A", borderRadius:"10px"}}
                       >
-                        <a href="../../quiz.js" />
                         Start Quiz
-                      </button>
+                      </Link>
                   </div>
                 </div>
 

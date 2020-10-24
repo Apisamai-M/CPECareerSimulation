@@ -1,7 +1,23 @@
 import React, { Component } from "react";
+import {Link , withRouter} from 'react-router-dom'
 
 class Menu extends Component {
+  state ={
+    hover: false
+  }
+
+  handleHover = ( ) => {
+    this.setState({hover: !this.state.hover})
+  }
+  handleHover2 = ( ) => {
+    this.setState({hover2: !this.state.hover2})
+  }
+
   render() {
+    let setStyles
+    let setStyles2
+    this.state.hover ? setStyles = {color: "#C49DF1"} : setStyles = {color: "white"}
+    this.state.hover2 ? setStyles2 = {color: "#C49DF1"} : setStyles2 = {color: "white"}
     return (
       <div>
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -45,17 +61,17 @@ class Menu extends Component {
                 {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
                 <li className="nav-item has-treeview menu-open">
-                  <a href="../../home" className="nav-link active">
+                  <Link style={setStyles} to="/Home" className="nav-link" onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
                     <i className="nav-icon fas fa-tachometer-alt" />
                     <p>Performance</p>
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item has-treeview menu-open">
-                  <a href="../../StatusProfile" className="nav-link">
+                  <Link style={setStyles2} to="/StatusProfile" className="nav-link" onMouseEnter={this.handleHover2} onMouseLeave={this.handleHover2}>
                     <i className="nav-icon fas fa-tachometer-alt" />
                     <p>Status Profile</p>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -68,4 +84,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default withRouter(Menu);

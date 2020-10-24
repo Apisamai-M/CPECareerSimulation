@@ -257,6 +257,7 @@ class MajorGrade extends Component {
                     type="radio"
                     value="normal"
                     name="plan"
+                    defaultChecked
                     onClick={this.handleChange}
                   />
                   <label
