@@ -1,0 +1,27 @@
+.result {
+    position: relative;
+    left: 40%;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.result-image {
+    height: 50%;
+    width: 50%;
+    align-self: center;
+    padding: 2%;
+}
+
+.career {
+    text-align: center;
+}
+
+.description {
+    text-align: justify;
+    padding: 2%;
+    font-size: 120%;
+}
+
+.curve {
+    border-radius: 1%;
+}

@@ -6,13 +6,23 @@ class Quiz extends Component {
     value: "",
     value2: "",
   };
+  
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
   };
   
+  onSubmit = () => {
+    this.props.history.push({
+      pathname: '/result',
+      state: { detail: this.state.value,
+                detail2: this.state.value2}
+    })
+  }
+
   render() {
     const {value, value2} = this.state;
+    console.log(value)
     return (
       <div className="content-wrapper">
         {/* Content Header (Page header) */}
@@ -20,7 +30,7 @@ class Quiz extends Component {
           <div className="container-fluid">
             <div className="row mb-2">
               <div className="col-sm-6">
-                <h1>CPE Career Simulation</h1>
+                <h1>Quiz <img className="quiz-icon" src="../../dist/img/quiz.png"/></h1>
               </div>
             </div>
           </div>
@@ -218,12 +228,12 @@ class Quiz extends Component {
                       <input 
                       type="radio"
                       name="value2"
-                      value="web-dev"
-                      id="web-dev"
-                      checked={value2 === "web-dev"}
+                      value="tester"
+                      id="tester"
+                      checked={value2 === "tester"}
                       onChange={this.onChange}
                       />
-                      <label for="web-dev">
+                      <label for="tester">
                       <div className="card">
                         <img style={{height:"150px", width:"170px", padding:"5px", alignSelf:"center"}} src="../../dist/img/testing.png"/>
                         <p style={{alignSelf:"center", padding:"5px", fontSize:"14px"}}>Test and find bugs<br/>in your project</p>
@@ -236,6 +246,7 @@ class Quiz extends Component {
               </div>
             </div>
           </div>
+          <button onClick={this.onSubmit}>submit herer</button>
         </section>
       </div>
     )

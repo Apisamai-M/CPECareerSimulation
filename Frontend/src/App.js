@@ -15,6 +15,7 @@ import Header from "./Components/Header";
 import Menu from "./Components/Menu";
 import StatusProfile from "./Components/StatusProfile";
 import Quiz from "./Components/Quiz";
+import Result from "./Components/Results"
 import { server, YES } from "./constants";
 import { setApp } from "./Actions/app.action";
 
@@ -60,6 +61,7 @@ class App extends Component {
             <SecuredRoute path="/Home" component={Home} />
             <SecuredRoute path="/StatusProfile" component={StatusProfile} />
             <SecuredRoute path="/Quiz" component={Quiz} />
+            <SecuredRoute path="/result" component={Result} />
             <Route exact={true} path="/" component={this.redirectToLogin} />
             <Route path="*" component={this.redirectToLogin} />
           </Switch>
