@@ -112,15 +112,15 @@ class Quiz extends Component {
                       <input 
                       type="radio"
                       name="value"
-                      value="tutor"
-                      id="tutor"
-                      checked={value === "tutor"}
+                      value="question"
+                      id="question"
+                      checked={value === "question"}
                       onChange={this.onChange}
                       />
-                      <label for="tutor">
+                      <label for="question">
                       <div className="card">
-                        <img style={{height:"150px", width:"170px", padding:"5px", alignSelf:"center"}} src="../../dist/img/tutor.png"/>
-                        <p style={{alignSelf:"center", padding:"5px"}}>A Tutor</p>
+                        <img style={{height:"150px", width:"170px", padding:"5px", alignSelf:"center"}} src="../../dist/img/question.png"/>
+                        <p style={{alignSelf:"center", padding:"5px"}}>A Skeptical Person</p>
                       </div>
                       </label>
                       
@@ -246,7 +246,11 @@ class Quiz extends Component {
               </div>
             </div>
           </div>
-          <button onClick={this.onSubmit}>submit herer</button>
+          <button 
+          className="btn btn-info quiz-button" 
+          onClick={this.onSubmit}>
+            <span style={{ color: "#8D8D8C" }}>Submit</span>
+          </button>
         </section>
       </div>
     )

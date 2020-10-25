@@ -8,3 +8,12 @@
     height: 50%;
     width: 10%;
 }
+
+.quiz-button {
+    margin-right: 9;
+    background-color: #FEF28A;
+    border-color: #FEF28A;
+    width: 10%;
+    position: relative;
+    left: 45%;
+}

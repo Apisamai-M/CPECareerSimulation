@@ -54,7 +54,7 @@ export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was u
 
 
 export const apiUrl =  "http://localhost:8085/api/v2";
-export const imageUrl = "http://localhost:8085";
+export const imageUrl = "http://localhost:8085/img";
 
 export const YES = 'YES'
 export const NO = 'NO'
